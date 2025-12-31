@@ -8,21 +8,29 @@ import {Button} from "@/components/ui/button.tsx";
 import {Input} from "@/components/ui/input.tsx";
 import {db} from "@/db.ts";
 import { v4 as uuid } from "uuid"
+import type {Folder} from "@/feature/folder/type.ts";
+import type {Dispatch, SetStateAction} from "react";
 
 interface AddFolderModalProps {
     open: boolean
     onOpenChange: (open: boolean) => void
+    setFolders: Dispatch<SetStateAction<Folder[]>>
 }
 
 export function AddFolderModal({
                                   open,
                                   onOpenChange,
+                                   setFolders
                               }: AddFolderModalProps) {
     const addFolder = async (name: string) => {
+        const id = uuid();
+        const createdAt = Date.now();
         await db.folders.add({
-            id: uuid(),
+            id,
             name,
-            createdAt: Date.now(),
+            createdAt,
+        }).then(()=>{
+            setFolders(prev => [...prev, { id, name, createdAt }])
         })
     }
 

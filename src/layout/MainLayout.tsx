@@ -15,7 +15,7 @@ export default function MainLayout({
 
 
     return (
-        <div className="flex flex-col bg-background text-foreground">
+        <div className="flex h-screen flex-col bg-background text-foreground">
             <header className="flex items-center justify-end gap-2 px-4 py-3 border-b">
                 <Button
                     size="icon"

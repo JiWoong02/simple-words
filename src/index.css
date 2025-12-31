@@ -47,7 +47,12 @@
 :lang(ja) {
   font-family: "Noto Sans JP", sans-serif;
 }
-
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
 :root {
   font-family: "Noto Sans KR", sans-serif;
   --radius: 0.625rem;

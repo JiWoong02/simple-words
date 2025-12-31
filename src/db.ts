@@ -1,6 +1,7 @@
 // db.ts
 import {Dexie, type EntityTable} from "dexie"
-import type {Folder, Word} from "@/feature/word/type/type.ts";
+import type {Word} from "@/feature/word/type.ts";
+import type {Folder} from "@/feature/folder/type.ts";
 
 const db = new Dexie("StudyKanjiDB") as Dexie & {
     words: EntityTable<Word, "id">
@@ -13,5 +14,4 @@ db.version(1).stores({
     words: "++id, term, reading, meaning, stage, folderId" // Word 테이블
 })
 
-export type { Word, Folder }
 export { db }
