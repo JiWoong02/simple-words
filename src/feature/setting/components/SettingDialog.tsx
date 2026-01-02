@@ -6,15 +6,15 @@ import {
 import {ThemeToggle} from "@/feature/setting/components/ThemeToggle.tsx";
 import {Settings} from "lucide-react";
 
-interface SettingsModalProps {
+interface SettingDialogProps {
     open: boolean
     onOpenChange: (open: boolean) => void
 }
 
-export function SettingsModal({
+export function SettingsDialog({
                                   open,
                                   onOpenChange,
-                              }: SettingsModalProps) {
+                              }: SettingDialogProps) {
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-xs sm:max-w-md p-0">

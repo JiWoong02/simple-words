@@ -5,4 +5,5 @@ export interface Word {
     meaning: string;     // 의미 (예: 여행)
     stage?: 'new' | 'learning' | 'mastered';
     folderId?: string;   // 속한 폴더 ID
+    hint?: string;       // 힌트
 }
