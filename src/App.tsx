@@ -10,6 +10,8 @@ import ManageForder from "@/page/ManageFolder.tsx";
 import {GlobalDialog} from "@/components/GlobalDialog.tsx";
 import {Toaster} from "@/components/ui/sonner.tsx";
 import ManageWords from "@/page/ManageWords.tsx";
+import SelectFolder from "@/page/SelectFolder.tsx";
+import FlashCardPage from "@/page/FlashCardPage.tsx";
 
 function App() {
     const settings = useToggle();
@@ -30,6 +32,8 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/forderList" element={<ManageForder />} />
                     <Route path="/folder/:folderId" element={<ManageWords />} />
+                    <Route path="/selectFolder" element={<SelectFolder />} />
+                    <Route path="/flash-card/:folderId" element={<FlashCardPage />} />
                 </Routes>
             </MainLayout>
             <SettingsDialog open={settings.value} onOpenChange={settings.set}/>

@@ -1,10 +1,8 @@
-import {app, BrowserWindow, ipcMain} from 'electron'
+import {app, BrowserWindow, ipcMain, Menu} from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from "fs";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 const isDev = !app.isPackaged
 const configPath = path.join(app.getPath("userData"), "theme.json")
 
@@ -32,16 +30,18 @@ function createWindow() {
         height: 700,
         // resizable: false,
         // frame: false,
-        icon: path.join(__dirname, '../public/logo.ico'),
+        icon: path.join(app.getAppPath(), '../public/logo.ico'),
         webPreferences: {
-            preload: path.join(__dirname, "preload.js"),
+            preload: path.join(app.getAppPath(), "preload.js"),
         },
     })
 
     if (isDev) {
         win.loadURL('http://localhost:5173')
     } else {
-        win.loadFile(path.join(__dirname, '../dist/index.html'))
+        win.loadFile(
+            path.join(app.getAppPath(), 'dist', 'index.html')
+        )
     }
 }
 

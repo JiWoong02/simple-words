@@ -3,7 +3,7 @@ import {Folder as FolderIcon, Plus} from "lucide-react";
 import {ManageFolderModal} from "@/feature/folder/components/ManageFolderModal.tsx";
 import {useToggle} from "@/hook/useToggle.ts";
 import {db} from "@/db.ts";
-import {FolderItem} from "@/feature/folder/components/FolderItem.tsx";
+import {FolderManageItem} from "@/feature/folder/components/FolderManageItem.tsx";
 import {ScrollArea} from "@/components/ui/scroll-area.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Fragment, useEffect, useState} from "react";
@@ -56,7 +56,7 @@ export default function ManageFolder() {
                 <div className="flex flex-col gap-2 p-4">
                     {folders.map((folder, index) => (
                         <Fragment key={folder.id}>
-                            <FolderItem folder={folder} setFolders={setFolders} handleClickEditBtn={openEditModal}/>
+                            <FolderManageItem folder={folder} setFolders={setFolders} handleClickEditBtn={openEditModal}/>
                             {index < folders.length - 1 && <Separator/>}
                         </Fragment>
                     ))}

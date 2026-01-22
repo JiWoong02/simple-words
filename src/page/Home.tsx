@@ -9,8 +9,13 @@ export default function Home(){
     const quitApp = () => {
         window.electronAPI.appQuit()
     }
+
     const handleClickManageWords = () => {
         navigate('/forderList');
+    }
+
+    const handleClickFlachCard = () => {
+        navigate('/selectFolder')
     }
 
     useEffect(() => {
@@ -23,8 +28,8 @@ export default function Home(){
                     <Button size="lg" variant="default" onClick={handleClickManageWords}>
                         단어 등록
                     </Button>
-                    <Button size="lg" variant="default">
-                        시험보기
+                    <Button size="lg" variant="default" onClick={handleClickFlachCard}>
+                        플래시 카드
                     </Button>
                     <Button size="lg" variant="destructive" onClick={quitApp}>
                         종료

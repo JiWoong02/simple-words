@@ -8,13 +8,13 @@ import {toast} from "sonner";
 import {useDialogStore} from "@/store/uiStore.ts";
 import {useNavigate} from "react-router-dom";
 
-type FolderItemProps = {
+type FolderManageItemProps = {
     folder: FolderType;
     setFolders: Dispatch<SetStateAction<FolderType[]>>;
     handleClickEditBtn: (folderId: string) => void;
 }
 
-export function FolderItem({folder, setFolders, handleClickEditBtn}: FolderItemProps) {
+export function FolderManageItem({folder, setFolders, handleClickEditBtn}: FolderManageItemProps) {
     const { openConfirm } = useDialogStore();
     const navigate = useNavigate();
 
